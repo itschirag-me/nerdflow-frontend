@@ -9,7 +9,7 @@ export default defineConfig({
   server: {
     proxy: {
       "/api": {
-        target: "https://nerdflow-backend.onrender.com/api",
+        target: "https://nerdflow-backend.onrender.com",
         changeOrigin: true,
       },
     },
