@@ -1,4 +1,5 @@
 import useMetaDocument from "@/hooks/useMetaDocument";
+import axiosInstance from "@/services/api/axiosInstance";
 import { useQuery } from "@tanstack/react-query";
 import { createLazyFileRoute } from "@tanstack/react-router";
 
@@ -8,9 +9,7 @@ const Team = () => {
   const { data: teamData, isLoading } = useQuery({
     queryKey: ["teams"],
     queryFn: () => {
-      return fetch("/api/v1/team")
-        .then((res) => res.json())
-        .then((res) => res);
+      return axiosInstance.get("api/v1/team").then((res) => res.data);
     },
   });
 

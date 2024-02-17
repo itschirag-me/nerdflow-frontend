@@ -5,11 +5,14 @@ import * as path from "path";
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  define: {
+    __APP_END__: process.env.VITE_VERCEL_ENV,
+  },
   plugins: [react(), TanStackRouterVite()],
   server: {
     proxy: {
       "/api": {
-        target: "https://nerdflow-backend.onrender.com",
+        target: "http://localhost:5000",
         changeOrigin: true,
       },
     },
