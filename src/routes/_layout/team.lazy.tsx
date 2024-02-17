@@ -8,7 +8,7 @@ const Team = () => {
   const { data: teamData, isLoading } = useQuery({
     queryKey: ["teams"],
     queryFn: () => {
-      return fetch("http://localhost:5000/api/v1/team")
+      return fetch("/api/v1/team")
         .then((res) => res.json())
         .then((res) => res);
     },
